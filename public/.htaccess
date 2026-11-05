@@ -1,0 +1,15 @@
+# ResourceHub Apache Configuration
+# Prevent directory browsing
+Options -Indexes
+
+# UTF-8 default charset
+AddDefaultCharset UTF-8
+
+# Front Controller Routing (Dynamic URL Resolution)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
