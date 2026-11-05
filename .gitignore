@@ -1,0 +1,17 @@
+# Local credentials outside public
+config/database.php
+
+# Application logs
+logs/*.log
+!logs/.gitkeep
+
+# Backups and temporary dumps
+*.sql.gz
+*.tar.gz
+*.bak
+
+# Environment and IDE
+.env
+.vscode/
+.idea/
+
