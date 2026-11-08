@@ -16,7 +16,7 @@ include RH_TEMPLATES . '/layout/header.php';
             <div class="card-header d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center gap-2">
                     <span class="text-secondary small">Loan #<?= (int)$loan['id'] ?></span>
-                    <h5 class="fw-bold mb-0 text-white"><?= e($loan['asset_name']) ?></h5>
+                    <h5 class="fw-bold mb-0 text-dark"><?= e($loan['asset_name']) ?></h5>
                 </div>
                 <div>
                     <span class="badge badge-<?= e($loan['status']) ?>">
@@ -33,7 +33,7 @@ include RH_TEMPLATES . '/layout/header.php';
                 <div class="row g-3 mb-4">
                     <div class="col-sm-6">
                         <div class="text-secondary small">Equipment</div>
-                        <a href="<?= url('equipment', ['action' => 'view', 'id' => $loan['asset_id']]) ?>" class="fw-bold text-white text-decoration-none">
+                        <a href="<?= url('equipment', ['action' => 'view', 'id' => $loan['asset_id']]) ?>" class="fw-bold text-dark text-decoration-none">
                             <?= e($loan['asset_name']) ?>
                         </a>
                         <div class="font-monospace text-secondary small"><?= e($loan['asset_tag']) ?></div>
@@ -41,18 +41,18 @@ include RH_TEMPLATES . '/layout/header.php';
 
                     <div class="col-sm-6">
                         <div class="text-secondary small">Borrower</div>
-                        <div class="fw-semibold text-white"><?= e($loan['user_name']) ?></div>
+                        <div class="fw-semibold text-dark"><?= e($loan['user_name']) ?></div>
                         <div class="text-secondary small"><?= e($loan['user_email']) ?></div>
                     </div>
 
                     <div class="col-sm-6">
                         <div class="text-secondary small">Dates</div>
-                        <div class="fw-semibold text-white"><?= e(format_date($loan['start_date'])) ?> &rarr; <?= e(format_date($loan['end_date'])) ?></div>
+                        <div class="fw-semibold text-dark"><?= e(format_date($loan['start_date'])) ?> &rarr; <?= e(format_date($loan['end_date'])) ?></div>
                     </div>
 
                     <div class="col-sm-6">
                         <div class="text-secondary small">Submitted</div>
-                        <div class="small text-white"><?= e(format_datetime($loan['created_at'])) ?></div>
+                        <div class="small text-dark"><?= e(format_datetime($loan['created_at'])) ?></div>
                     </div>
 
                     <div class="col-12">
@@ -73,11 +73,11 @@ include RH_TEMPLATES . '/layout/header.php';
                     <?php if ($loan['status'] === 'returned'): ?>
                         <div class="col-sm-6">
                             <div class="text-secondary small">Returned on</div>
-                            <div class="small fw-semibold text-white"><?= e(format_datetime($loan['returned_at'])) ?></div>
+                            <div class="small fw-semibold text-dark"><?= e(format_datetime($loan['returned_at'])) ?></div>
                         </div>
                         <div class="col-sm-6">
                             <div class="text-secondary small">Condition on return</div>
-                            <div class="text-capitalize small fw-semibold text-white"><?= e($loan['return_condition']) ?></div>
+                            <div class="text-capitalize small fw-semibold text-dark"><?= e($loan['return_condition']) ?></div>
                         </div>
                         <?php if (!empty($loan['return_notes'])): ?>
                             <div class="col-12">
@@ -155,7 +155,7 @@ include RH_TEMPLATES . '/layout/header.php';
                 <?php elseif ($loan['status'] === 'checked_out' && Auth::isCoordinator()): ?>
                     <div class="border-top pt-3" style="border-color: var(--border-color) !important;">
                         <div class="p-3 rounded border" style="background-color: var(--bg-surface-subtle); border-color: var(--border-color) !important;">
-                            <div class="fw-bold small mb-2 text-white">Record return</div>
+                            <div class="fw-bold small mb-2 text-dark">Record return</div>
                             <form method="POST" action="<?= url('loans', ['action' => 'view', 'id' => $loan['id']]) ?>">
                                 <?= csrf_field() ?>
                                 <input type="hidden" name="action" value="return">
@@ -203,7 +203,7 @@ include RH_TEMPLATES . '/layout/header.php';
                                     </span>
                                     <span class="text-secondary" style="font-size: 0.72rem;"><?= e(format_datetime($h['created_at'])) ?></span>
                                 </div>
-                                <div class="small fw-semibold text-white"><?= e($h['performer_name'] ?? 'System') ?></div>
+                                <div class="small fw-semibold text-dark"><?= e($h['performer_name'] ?? 'System') ?></div>
                                 <?php if (!empty($h['notes'])): ?>
                                     <div class="text-secondary small"><?= e($h['notes']) ?></div>
                                 <?php endif; ?>

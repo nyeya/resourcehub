@@ -16,7 +16,7 @@ include RH_TEMPLATES . '/layout/header.php';
             <div class="card-header d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center gap-2">
                     <span class="font-monospace small text-secondary"><?= e($asset['asset_tag']) ?></span>
-                    <h5 class="fw-bold mb-0 text-white"><?= e($asset['name']) ?></h5>
+                    <h5 class="fw-bold mb-0 text-dark"><?= e($asset['name']) ?></h5>
                 </div>
                 <span class="badge badge-<?= e($asset['status']) ?>">
                     <span class="badge-dot"></span>
@@ -28,34 +28,34 @@ include RH_TEMPLATES . '/layout/header.php';
                 <div class="row g-3 mb-4">
                     <div class="col-sm-6">
                         <div class="text-secondary small">Category</div>
-                        <div class="fw-semibold text-white"><?= e($asset['category_name']) ?></div>
+                        <div class="fw-semibold text-dark"><?= e($asset['category_name']) ?></div>
                     </div>
                     <div class="col-sm-6">
                         <div class="text-secondary small">Location</div>
-                        <div class="fw-semibold text-white"><?= e($asset['location_name']) ?> (<?= e($asset['location_room']) ?>)</div>
+                        <div class="fw-semibold text-dark"><?= e($asset['location_name']) ?> (<?= e($asset['location_room']) ?>)</div>
                     </div>
                     <div class="col-sm-6">
                         <div class="text-secondary small">Model</div>
-                        <div class="fw-semibold text-white"><?= e($asset['model'] ?: 'Standard') ?></div>
+                        <div class="fw-semibold text-dark"><?= e($asset['model'] ?: 'Standard') ?></div>
                     </div>
                     <div class="col-sm-6">
                         <div class="text-secondary small">Serial number</div>
-                        <div class="font-monospace small text-white"><?= e($asset['serial_number'] ?: 'N/A') ?></div>
+                        <div class="font-monospace small text-dark"><?= e($asset['serial_number'] ?: 'N/A') ?></div>
                     </div>
                     <div class="col-sm-6">
                         <div class="text-secondary small">Condition</div>
-                        <div class="text-capitalize fw-semibold text-white"><?= e($asset['condition']) ?></div>
+                        <div class="text-capitalize fw-semibold text-dark"><?= e($asset['condition']) ?></div>
                     </div>
                     <div class="col-sm-6">
                         <div class="text-secondary small">Added</div>
-                        <div class="small text-white"><?= e(format_date($asset['created_at'])) ?></div>
+                        <div class="small text-dark"><?= e(format_date($asset['created_at'])) ?></div>
                     </div>
                 </div>
 
                 <?php if (!empty($asset['notes'])): ?>
                     <div class="p-3 rounded border" style="background-color: var(--bg-surface-subtle); border-color: var(--border-color) !important;">
                         <div class="text-secondary small fw-medium mb-1">Notes &amp; Inclusions</div>
-                        <div class="small text-white"><?= nl2br(e($asset['notes'])) ?></div>
+                        <div class="small text-dark"><?= nl2br(e($asset['notes'])) ?></div>
                     </div>
                 <?php endif; ?>
             </div>
@@ -120,7 +120,7 @@ include RH_TEMPLATES . '/layout/header.php';
                                     <span class="text-secondary small">#<?= (int)$l['id'] ?></span>
                                 </div>
                                 <?php if (Auth::isCoordinator()): ?>
-                                    <div class="small fw-semibold text-white"><?= e($l['user_name'] ?? 'Borrower') ?></div>
+                                    <div class="small fw-semibold text-dark"><?= e($l['user_name'] ?? 'Borrower') ?></div>
                                 <?php endif; ?>
                                 <div class="text-secondary small"><?= e(format_date($l['start_date'])) ?> &rarr; <?= e(format_date($l['end_date'])) ?></div>
                             </a>

@@ -6,12 +6,12 @@ include RH_TEMPLATES . '/layout/header.php';
 
 <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
     <div>
-        <h2 class="fw-bold tracking-tight mb-1 text-white">Equipment</h2>
+        <h2 class="fw-bold tracking-tight mb-1 text-dark">Equipment Fleet</h2>
         <div class="text-secondary small">Shared organization tools and devices inventory.</div>
     </div>
     <div class="d-flex align-items-center gap-2">
         <?php if (Auth::isCoordinator()): ?>
-            <a href="<?= url('reports', ['action' => 'export_equipment']) ?>" class="btn btn-secondary btn-sm">
+            <a href="<?= url('reports', ['action' => 'export_equipment']) ?>" class="rh-pill-btn">
                 <i class="bi bi-download"></i> Export CSV
             </a>
             <a href="<?= url('equipment', ['action' => 'create']) ?>" class="rh-action-btn-pill">
@@ -113,7 +113,7 @@ include RH_TEMPLATES . '/layout/header.php';
                                     <span class="font-monospace text-secondary fw-semibold small"><?= e($item['asset_tag']) ?></span>
                                 </td>
                                 <td>
-                                    <a href="<?= url('equipment', ['action' => 'view', 'id' => $item['id']]) ?>" class="fw-bold text-white text-decoration-none">
+                                    <a href="<?= url('equipment', ['action' => 'view', 'id' => $item['id']]) ?>" class="fw-bold text-dark text-decoration-none">
                                         <?= e($item['name']) ?>
                                     </a>
                                     <?php if (!empty($item['model'])): ?>
@@ -122,11 +122,11 @@ include RH_TEMPLATES . '/layout/header.php';
                                 </td>
                                 <td class="small text-secondary"><?= e($item['category_name']) ?></td>
                                 <td class="small">
-                                    <div class="text-white"><?= e($item['location_name']) ?></div>
+                                    <div class="text-dark fw-medium"><?= e($item['location_name']) ?></div>
                                     <div class="text-secondary" style="font-size: 0.72rem;"><?= e($item['location_room']) ?></div>
                                 </td>
                                 <td>
-                                    <span class="badge border text-capitalize" style="border-color: var(--border-subtle) !important; color: var(--text-secondary);"><?= e($item['condition']) ?></span>
+                                    <span class="badge border text-capitalize" style="border-color: var(--border-color) !important; color: var(--text-secondary);"><?= e($item['condition']) ?></span>
                                 </td>
                                 <td>
                                     <span class="badge badge-<?= e($item['status']) ?>">
@@ -163,7 +163,7 @@ include RH_TEMPLATES . '/layout/header.php';
     <?php if ($totalPages > 1 || $totalItems > 0): ?>
         <div class="card-footer d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 py-3">
             <div class="text-secondary small">
-                Showing <strong class="text-white"><?= $startItem ?></strong> to <strong class="text-white"><?= $endItem ?></strong> of <strong class="text-white"><?= $totalItems ?></strong> assets
+                Showing <strong class="text-dark"><?= $startItem ?></strong> to <strong class="text-dark"><?= $endItem ?></strong> of <strong class="text-dark"><?= $totalItems ?></strong> assets
             </div>
             <?php if ($totalPages > 1): ?>
                 <nav aria-label="Equipment pagination">

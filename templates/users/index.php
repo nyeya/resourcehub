@@ -6,7 +6,7 @@ include RH_TEMPLATES . '/layout/header.php';
 
 <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
     <div>
-        <h2 class="fw-bold tracking-tight mb-1 text-white">Users</h2>
+        <h2 class="fw-bold tracking-tight mb-1 text-dark">Team &amp; Users</h2>
         <div class="text-secondary small">Manage accounts, active statuses, and access permissions.</div>
     </div>
     <div class="d-flex align-items-center gap-2">
@@ -23,7 +23,7 @@ include RH_TEMPLATES . '/layout/header.php';
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>User</th>
                         <th>Email</th>
                         <th>Role</th>
                         <th>Status</th>
@@ -36,14 +36,21 @@ include RH_TEMPLATES . '/layout/header.php';
                         <tr>
                             <td><span class="text-secondary small">#<?= (int)$u['id'] ?></span></td>
                             <td>
-                                <span class="fw-semibold text-white small"><?= e($u['name']) ?></span>
-                                <?php if ((int)$u['id'] === Auth::id()): ?>
-                                    <span class="badge border ms-1" style="font-size: 0.65rem; border-color: var(--border-color) !important; color: var(--text-primary);">You</span>
-                                <?php endif; ?>
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="rh-avatar" style="width: 28px; height: 28px; font-size: 0.72rem;">
+                                        <?= strtoupper(substr($u['name'] ?? 'U', 0, 1)) ?>
+                                    </div>
+                                    <span class="fw-semibold text-dark small"><?= e($u['name']) ?></span>
+                                    <?php if ((int)$u['id'] === Auth::id()): ?>
+                                        <span class="badge border ms-1" style="font-size: 0.65rem; border-color: var(--border-color) !important; color: var(--text-primary);">You</span>
+                                    <?php endif; ?>
+                                </div>
                             </td>
                             <td><span class="text-secondary small"><?= e($u['email']) ?></span></td>
                             <td>
-                                <span class="text-capitalize small fw-semibold text-white"><?= e($u['role']) ?></span>
+                                <span class="badge <?= $u['role'] === 'administrator' ? 'badge-approved' : ($u['role'] === 'coordinator' ? 'badge-maintenance' : 'badge-available') ?>">
+                                    <?= ucfirst(e($u['role'])) ?>
+                                </span>
                             </td>
                             <td>
                                 <?php if (!empty($u['is_active'])): ?>

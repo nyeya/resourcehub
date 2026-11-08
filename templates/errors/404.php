@@ -9,7 +9,7 @@ include RH_TEMPLATES . '/layout/header.php';
         <div class="d-inline-flex align-items-center justify-content-center bg-slate-100 text-slate-600 rounded-circle mb-3" style="width: 64px; height: 64px;">
             <i class="bi bi-question-circle fs-1"></i>
         </div>
-        <h2 class="fw-bold tracking-tight mb-2 text-white">404 &mdash; Record Not Found</h2>
+        <h2 class="fw-bold tracking-tight mb-2 text-dark">404 &mdash; Record Not Found</h2>
         <p class="text-secondary mb-4 small" style="max-width: 420px; margin: 0 auto;">
             The requested page or database record could not be found, has expired, or may have been relocated.
         </p>
