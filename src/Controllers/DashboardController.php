@@ -15,7 +15,7 @@ class DashboardController {
 
         // Staff only sees their own recent loans; Coordinator/Admin sees all
         $userLimit = Auth::isCoordinator() ? null : Auth::id();
-        $recentLoans = $loanModel->getAll([], $userLimit, 8);
+        $recentLoans = $loanModel->getAll([], $userLimit, 6);
 
         // Metrics calculations
         $totalAssets = (int)($stats['total_assets'] ?? 0);
@@ -28,6 +28,9 @@ class DashboardController {
         // Availability percentage
         $availabilityRate = ($totalAssets > 0) ? round(($availableAssets / $totalAssets) * 100, 1) : 100.0;
 
+        // Categories for KPI display
+        $categories = $eqModel->getCategories();
+
         view('dashboard/index', [
             'stats'            => $stats,
             'recentLoans'      => $recentLoans,
@@ -38,7 +41,7 @@ class DashboardController {
             'overdueLoans'     => $overdueLoans,
             'pendingRequests'  => $pendingRequests,
             'availabilityRate' => $availabilityRate,
+            'categories'       => $categories,
         ]);
     }
 }
-
