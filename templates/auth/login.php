@@ -6,10 +6,10 @@ include RH_TEMPLATES . '/layout/header.php';
 <div class="rh-auth-card mx-auto">
     <div class="rh-auth-header">
         <div class="rh-auth-logo">
-            <i class="bi bi-layers-fill"></i>
+            <img src="assets/img/logo.png" alt="ResourceHub Logo" class="rh-auth-logo-img">
         </div>
-        <h1 class="rh-auth-title">Welcome to ResourceHub</h1>
-        <p class="rh-auth-subtitle">Dark Pro &bull; Sign in to access workspace</p>
+        <h1 class="rh-auth-title">Welcome to <span class="text-primary">ResourceHub</span></h1>
+        <p class="rh-auth-subtitle"> Sign in to access workspace</p>
     </div>
 
     <?php if (!empty($loginError)): ?>

@@ -19,6 +19,7 @@ if (Auth::check()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="<?= base_url() ?>">
     <title><?= isset($pageTitle) ? e($pageTitle) . ' &bull; ' : '' ?>ResourceHub</title>
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -43,7 +44,7 @@ if (Auth::check()) {
         <div class="rh-sidebar-header">
             <a class="rh-workspace-switcher" href="<?= url('dashboard') ?>" title="ResourceHub">
                 <div class="rh-workspace-avatar">
-                    <i class="bi bi-layers-fill"></i>
+                    <img src="assets/img/logo.png" alt="ResourceHub Logo" class="rh-workspace-logo">
                 </div>
                 <div class="rh-workspace-info">
                     <span class="rh-workspace-name">ResourceHub</span>
