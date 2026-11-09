@@ -6,11 +6,11 @@ include RH_TEMPLATES . '/layout/header.php';
 
 <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
     <div>
-        <h2 class="fw-bold tracking-tight mb-1 text-white">Reports</h2>
+        <h2 class="fw-bold tracking-tight mb-1 text-dark">Reports &amp; Analytics</h2>
         <div class="text-secondary small">Download data exports and view fleet distribution summaries.</div>
     </div>
     <div class="d-flex align-items-center gap-2">
-        <a href="<?= url('reports', ['action' => 'export_equipment']) ?>" class="btn btn-secondary btn-sm">
+        <a href="<?= url('reports', ['action' => 'export_equipment']) ?>" class="rh-pill-btn">
             <i class="bi bi-download"></i> Equipment CSV
         </a>
         <a href="<?= url('reports', ['action' => 'export_loans']) ?>" class="rh-action-btn-pill">
@@ -39,7 +39,7 @@ include RH_TEMPLATES . '/layout/header.php';
                     ?>
                         <div>
                             <div class="d-flex justify-content-between align-items-center mb-1 small">
-                                <span class="fw-semibold text-white"><?= e($lCat['name']) ?></span>
+                                <span class="fw-semibold text-dark"><?= e($lCat['name']) ?></span>
                                 <span class="text-secondary"><?= (int)$lCat['count'] ?> loans (<?= $pct ?>%)</span>
                             </div>
                             <div class="progress" style="height: 10px; background-color: var(--bg-surface-subtle); border-radius: 999px;">
@@ -64,7 +64,7 @@ include RH_TEMPLATES . '/layout/header.php';
                 <ul class="list-group list-group-flush">
                     <?php foreach ($metrics['by_category'] as $c): ?>
                         <li class="list-group-item d-flex justify-content-between align-items-center py-2 px-3 small">
-                            <span class="text-white"><?= e($c['name']) ?></span>
+                            <span class="text-dark fw-medium"><?= e($c['name']) ?></span>
                             <span class="badge border" style="border-color: var(--border-color) !important; color: var(--text-primary);"><?= (int)$c['count'] ?></span>
                         </li>
                     <?php endforeach; ?>
@@ -83,7 +83,7 @@ include RH_TEMPLATES . '/layout/header.php';
                 <ul class="list-group list-group-flush">
                     <?php foreach ($metrics['by_condition'] as $cond): ?>
                         <li class="list-group-item d-flex justify-content-between align-items-center py-2 px-3 small">
-                            <span class="text-capitalize text-white"><?= e($cond['condition']) ?></span>
+                            <span class="text-capitalize text-dark fw-medium"><?= e($cond['condition']) ?></span>
                             <span class="badge border" style="border-color: var(--border-color) !important; color: var(--text-primary);"><?= (int)$cond['count'] ?></span>
                         </li>
                     <?php endforeach; ?>

@@ -38,9 +38,9 @@ include RH_TEMPLATES . '/layout/header.php';
     </form>
 
     <div class="d-flex align-items-center my-4">
-        <div class="flex-grow-1" style="height: 1px; background: rgba(255, 255, 255, 0.08);"></div>
+        <div class="flex-grow-1" style="height: 1px; background: var(--border-color);"></div>
         <span class="px-2 text-secondary small" style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;">Demo Accounts</span>
-        <div class="flex-grow-1" style="height: 1px; background: rgba(255, 255, 255, 0.08);"></div>
+        <div class="flex-grow-1" style="height: 1px; background: var(--border-color);"></div>
     </div>
 
     <!-- Demo Account Tiles -->

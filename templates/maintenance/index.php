@@ -6,7 +6,7 @@ include RH_TEMPLATES . '/layout/header.php';
 
 <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
     <div>
-        <h2 class="fw-bold tracking-tight mb-1 text-white">Maintenance</h2>
+        <h2 class="fw-bold tracking-tight mb-1 text-dark">Maintenance</h2>
         <div class="text-secondary small">Repairs, defects, and hardware condition logs.</div>
     </div>
     <div class="d-flex align-items-center gap-2">
@@ -17,7 +17,7 @@ include RH_TEMPLATES . '/layout/header.php';
 </div>
 
 <!-- Tabs -->
-<div class="mb-4">
+<div class="mb-4 rh-tabs-container">
     <div class="rh-tabs">
         <a class="rh-tab-item <?= $currentStatus === '' ? 'active' : '' ?>" href="<?= url('maintenance') ?>">All</a>
         <a class="rh-tab-item <?= $currentStatus === 'open' ? 'active' : '' ?>" href="<?= url('maintenance', ['status' => 'open']) ?>">Open</a>
@@ -55,15 +55,15 @@ include RH_TEMPLATES . '/layout/header.php';
                                     <span class="text-secondary small">#<?= (int)$t['id'] ?></span>
                                 </td>
                                 <td>
-                                    <a href="<?= url('equipment', ['action' => 'view', 'id' => $t['asset_id']]) ?>" class="fw-bold text-white text-decoration-none">
+                                    <a href="<?= url('equipment', ['action' => 'view', 'id' => $t['asset_id']]) ?>" class="fw-bold text-dark text-decoration-none">
                                         <?= e($t['asset_name']) ?>
                                     </a>
                                     <div class="font-monospace text-secondary small"><?= e($t['asset_tag']) ?></div>
                                 </td>
-                                <td class="small fw-semibold text-white"><?= e($t['opened_by_name']) ?></td>
+                                <td class="small fw-semibold text-dark"><?= e($t['opened_by_name']) ?></td>
                                 <td class="small text-secondary"><?= e(format_datetime($t['opened_at'])) ?></td>
                                 <td class="small text-truncate" style="max-width: 250px;" title="<?= e($t['issue_description']) ?>">
-                                    <span class="text-white"><?= e($t['issue_description']) ?></span>
+                                    <span class="text-dark"><?= e($t['issue_description']) ?></span>
                                     <?php if ($t['status'] === 'resolved' && !empty($t['resolution_notes'])): ?>
                                         <div class="text-secondary" style="font-size: 0.72rem;">
                                             <i class="bi bi-check text-success"></i> <?= e($t['resolution_notes']) ?>
