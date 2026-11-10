@@ -115,6 +115,10 @@ cd /var/www/html
 sudo git clone https://github.com/nyeya/resourcehub.git
 cd resourcehub
 
+# Assign directory ownership to your current user and web group
+sudo chown -R $USER:www-data /var/www/html/resourcehub
+sudo chmod -R 775 /var/www/html/resourcehub
+
 # Grant write permissions for local application logs
 sudo chown -R www-data:www-data logs/
 sudo chmod -R 775 logs/
@@ -211,24 +215,14 @@ Then visit: `http://127.0.0.1:8000/`
 
 ---
 
-## 8. Day 2 Installation Acceptance Gate
-
-- [x] Browser loads local PHP page at `http://localhost/`.
-- [x] PDO lists `pgsql` driver.
-- [x] `SELECT current_database()` returns `resourcehub`.
-- [x] Bootstrap 5.3.3 loads with the internet disconnected.
-- [x] Both services recover after reboot (`sudo reboot`).
-- [x] No `phpinfo()` or passwords committed to Git.
-
----
-
-## 9. Troubleshooting &amp; Common Pitfalls
+## 8. Troubleshooting &amp; Common Pitfalls
 
 | Issue | Cause | Solution |
 | :--- | :--- | :--- |
 | `HTTP 500: could not find driver` | `php-pgsql` module is disabled or not installed. | Run `sudo apt install php-pgsql` and verify with `php -m \| grep pgsql`. Restart Apache. |
-| `HTTP 403 Forbidden` on asset loading | File permissions on `public/assets/` are restrictive. | Run `sudo chmod -R 755 /var/www/html/resource-hub/public`. |
+| `HTTP 403 Forbidden` on asset loading | File permissions on `public/assets/` are restrictive. | Run `sudo chmod -R 755 /var/www/html/resourcehub/public`. |
 | `HTTP 404 Not Found` on clean paths (e.g. `/loans/request`) | Apache `mod_rewrite` is disabled or `AllowOverride All` is omitted. | Execute `sudo a2enmod rewrite` and ensure `AllowOverride All` is inside `/etc/apache2/sites-available/resourcehub.conf`. |
 | `SQLSTATE[08006] Connection refused` | PostgreSQL service is inactive or listening on wrong port. | Run `sudo systemctl status postgresql` and verify port 5432 in `config/database.php`. |
 | `Password authentication failed for user resourcehub_app` | Password mismatch in `config/database.php`. | Re-run `ALTER USER resourcehub_app WITH ENCRYPTED PASSWORD 'root';` in `psql`. Avoid solving errors by granting broad permissions. |
+| `cp: cannot create regular file 'config/database.php': Permission denied` | Repository was cloned with `sudo`, leaving directory ownership under `root`. | Run `sudo chown -R $USER:www-data /var/www/html/resourcehub` and `sudo chmod -R 775 /var/www/html/resourcehub`. |
 
