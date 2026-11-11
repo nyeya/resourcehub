@@ -1543,3 +1543,24 @@ flex: 1;
     color: var(--accent-blue);
     transform: translateX(3px);
 }
+
+/* ====================================================================
+   Backup & Restoration Console Styling
+   ==================================================================== */
+.rh-backup-card {
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.rh-backup-meta {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+}
+
+.rh-sql-badge {
+    background-color: var(--bg-surface-alt);
+    border: 1px solid var(--border-color);
+    font-family: var(--font-family-mono);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+}

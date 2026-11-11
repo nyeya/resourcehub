@@ -127,6 +127,13 @@ if (Auth::check()) {
                 </span>
                 <i class="bi bi-chevron-right rh-sidebar-chevron"></i>
             </a>
+            <a class="rh-sidebar-link <?= $activePage === 'backup' ? 'active' : '' ?>" href="<?= url('backup') ?>" title="Backup & Restore">
+                <span class="rh-link-content">
+                    <i class="bi bi-database-fill-gear"></i>
+                    <span class="rh-link-text">Backup & Restore</span>
+                </span>
+                <i class="bi bi-chevron-right rh-sidebar-chevron"></i>
+            </a>
             <?php endif; ?>
         </nav>
 
